@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Anual del Banner: Universidad</title>
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Reporte anual del banner: Universidad</h1>
+    </div>
+
+    <div class="buttons">
+        <button class="filter">Filtrar</button>
+        <button class="excel">Excel</button>
+        <button class="pdf">PDF</button>
+        <button class="whatsapp">WhatsApp</button>
+        <button class="back" onclick="window.location.href='/banners.html'">Regresar</button>
+    </div>
+
+    <div class="container">
+        <div class="chart-container">
+            <h3>Enero-Marzo</h3>
+            <div class="chart" id="chart1"></div>
+        </div>
+        <div class="chart-container">
+            <h3>Abril-Junio</h3>
+            <div class="chart" id="chart2"></div>
+        </div>
+        <div class="chart-container">
+            <h3>Julio-Septiembre</h3>
+            <div class="chart" id="chart3"></div>
+        </div>
+        <div class="chart-container">
+            <h3>Octubre-Diciembre</h3>
+            <div class="chart" id="chart4"></div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder script to simulate charts
+        const charts = document.querySelectorAll('.chart');
+        charts.forEach(chart => {
+            chart.style.backgroundImage = 'linear-gradient(to top, #4a69bd, #6a89cc)';
+        });
+    </script>
+</body>
+</html>

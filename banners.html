@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Simple</title>
+    <link rel="stylesheet" href="css/banners.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>SGC</h1>
+                <p>Sistema de Gestión de Clics</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/home.html">Inicio</a></li>
+                    <li><a href="/banners.html">Banners</a></li>
+                    <li><a href="/clicks.html">Clicks</a></li>
+                    <li><a href="/users.html">Usuarios</a></li>
+                    <li><a href="/reports.html">Reportes</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section class="chart-container">
+                <h2>Rendimiento de banners</h2>
+                <p>Obtén informes detallados sobre el rendimiento de los banners publicitarios por medio de gráficos.</p>
+                <div id="chart">[Gráfica aquí]</div>
+            </section>
+            <section class="table-container">
+                <h2>Tabla de banners</h2>
+                <p>Obtén informes detallados sobre el rendimiento de los banners publicitarios por medio de tablas.</p>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Banner</th>
+                            <th>Clicks</th>
+                            <th>Usuarios</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Banner 1</td>
+                            <td>23</td>
+                            <td>Usuario 1</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <aside class="filter-container">
+            <h2>Filtrar Búsqueda</h2>
+            <form id="filters">
+                <label for="date-range">Seleccione un rango de fechas:</label>
+                <input type="date" id="date-start" name="date-start">
+                <input type="date" id="date-end" name="date-end">
+                
+                <label for="banner-name">Nombre del banner:</label>
+                <input type="text" id="banner-name" name="banner-name">
+                
+                <label for="conversion-rate">Tasa de conversión:</label>
+                <input type="text" id="conversion-rate" name="conversion-rate">
+
+                <label for="school">Escuela:</label>
+                <select id="school" name="school">
+                    <option value="escuela1">Escuela 1</option>
+                    <option value="escuela2">Escuela 2</option>
+                </select>
+                <button type="submit">Filtrar</button>
+            </form>
+        </aside>
+    </div>
+</body>
+</html>
