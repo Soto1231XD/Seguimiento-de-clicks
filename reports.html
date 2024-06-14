@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte Anual del Banner: Universidad</title>
     <link rel="stylesheet" href="css/reports.css">
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 
@@ -39,12 +41,61 @@
         </div>
     </div>
 
+    <!-- Google Charts script -->
     <script>
-        // Placeholder script to simulate charts
-        const charts = document.querySelectorAll('.chart');
-        charts.forEach(chart => {
-            chart.style.backgroundImage = 'linear-gradient(to top, #4a69bd, #6a89cc)';
-        });
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            // Datos de ejemplo para las gráficas
+            var data1 = google.visualization.arrayToDataTable([
+                ['Mes', 'Clicks'],
+                ['Enero',  100],
+                ['Febrero',  200],
+                ['Marzo',  300]
+            ]);
+
+            var data2 = google.visualization.arrayToDataTable([
+                ['Mes', 'Clicks'],
+                ['Abril',  150],
+                ['Mayo',  250],
+                ['Junio',  350]
+            ]);
+
+            var data3 = google.visualization.arrayToDataTable([
+                ['Mes', 'Clicks'],
+                ['Julio',  120],
+                ['Agosto',  180],
+                ['Septiembre',  270]
+            ]);
+
+            var data4 = google.visualization.arrayToDataTable([
+                ['Mes', 'Clicks'],
+                ['Octubre',  180],
+                ['Noviembre',  220],
+                ['Diciembre',  320]
+            ]);
+
+            // Opciones para las gráficas
+            var options = {
+                title: 'Número de Clicks por Trimestre',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            // Dibujar las gráficas
+            var chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
+            chart1.draw(data1, options);
+
+            var chart2 = new google.visualization.LineChart(document.getElementById('chart2'));
+            chart2.draw(data2, options);
+
+            var chart3 = new google.visualization.LineChart(document.getElementById('chart3'));
+            chart3.draw(data3, options);
+
+            var chart4 = new google.visualization.LineChart(document.getElementById('chart4'));
+            chart4.draw(data4, options);
+        }
     </script>
 </body>
 </html>

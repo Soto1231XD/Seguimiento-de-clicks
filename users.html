@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Simple</title>
     <link rel="stylesheet" href="css/users.css">
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
     <div class="container">
@@ -25,9 +27,9 @@
         </aside>
         <main class="main-content">
             <section class="chart-container">
-                <h2>seguimiento de usuarios</h2>
+                <h2>Seguimiento de usuarios</h2>
                 <p>Obtén informes detallados sobre el seguimiento de usuarios por medio de gráficas.</p>
-                <div id="chart">[Gráfica aquí]</div>
+                <div id="chart_div"></div>
             </section>
             <section class="table-container">
                 <h2>Tabla de usuarios</h2>
@@ -47,9 +49,25 @@
                         <tr>
                             <td>1</td>
                             <td>Usuario 1</td>
+                            <td>192.163.20.10</td>
+                            <td>admintest@gmail.com</td>
+                            <td>Móvil</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Usuario 2</td>
+                            <td>192.163.10.23</td>
+                            <td>admintest@gmail.com</td>
+                            <td>Computadora</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Usuario 3</td>
                             <td>192.163.07.10</td>
                             <td>admintest@gmail.com</td>
-                            <td>Movil</td>
+                            <td>Móvil</td>
                             <td>19/01/2024</td>
                         </tr>
                     </tbody>
@@ -68,12 +86,43 @@
 
                 <label for="school">Nombre del dispositivo:</label>
                 <select id="school" name="school">
-                    <option value="escuela1">Movil</option>
-                    <option value="escuela2">Computadora</option>
+                    <option value="movil">Móvil</option>
+                    <option value="computadora">Computadora</option>
                 </select>
                 <button type="submit">Filtrar</button>
             </form>
         </aside>
     </div>
+
+    <!-- Google Charts script -->
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Usuario', 'Número de dispositivos'],
+                ['Usuario 1', 3],
+                ['Usuario 2', 2],
+                ['Usuario 3', 1]
+            ]);
+
+            var options = {
+                title: 'Número de dispositivos por usuario',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Número de dispositivos',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Usuario'
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </body>
 </html>

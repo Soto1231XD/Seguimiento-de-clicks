@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Simple</title>
     <link rel="stylesheet" href="css/clicks.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -25,9 +26,11 @@
         </aside>
         <main class="main-content">
             <section class="chart-container">
-                <h2>seguimiento de clicks</h2>
+                <h2>Seguimiento de clicks</h2>
                 <p>Obtén informes detallados sobre el seguimiento de clicks por medio de gráficas.</p>
-                <div id="chart">[Gráfica aquí]</div>
+                <div id="chart">
+                    <canvas id="myChart" width="400" height="300"></canvas>
+                </div>
             </section>
             <section class="table-container">
                 <h2>Tabla de clicks</h2>
@@ -51,7 +54,25 @@
                             <td>23</td>
                             <td>Usuario 1</td>
                             <td>admin@test.com</td>
-                            <td>197.145.123</td>
+                            <td>197.145.23.01</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Banner 2</td>
+                            <td>10</td>
+                            <td>Usuario 2</td>
+                            <td>admin@test.com</td>
+                            <td>197.145.01.10</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Banner 3</td>
+                            <td>17</td>
+                            <td>Usuario 3</td>
+                            <td>admin@test.com</td>
+                            <td>197.172.10.01</td>
                             <td>19/01/2024</td>
                         </tr>
                     </tbody>
@@ -75,5 +96,34 @@
             </form>
         </aside>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['19/01/2024', '20/01/2024', '21/01/2024'], // Ejemplo de fechas
+                    datasets: [
+                        {
+                            label: 'Clicks por día',
+                            data: [23, 10, 17], // Ejemplo de clicks por día
+                            fill: false,
+                            borderColor: '#3498db',
+                            backgroundColor: '#3498db',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

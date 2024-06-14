@@ -151,3 +151,9 @@ form button:hover {
     border-radius: 8px;
     height: auto;
 }
+
+#chart {
+    width: 100%;
+    max-width: 600px; /* Ajusta el ancho máximo según sea necesario */
+    margin: auto;
+}

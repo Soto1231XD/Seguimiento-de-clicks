@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Simple</title>
     <link rel="stylesheet" href="css/banners.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -27,7 +28,9 @@
             <section class="chart-container">
                 <h2>Rendimiento de banners</h2>
                 <p>Obtén informes detallados sobre el rendimiento de los banners publicitarios por medio de gráficos.</p>
-                <div id="chart">[Gráfica aquí]</div>
+                <div id="chart">
+                    <canvas id="myChart" width="400" height="300"></canvas>
+                </div>
             </section>
             <section class="table-container">
                 <h2>Tabla de banners</h2>
@@ -48,6 +51,20 @@
                             <td>Banner 1</td>
                             <td>23</td>
                             <td>Usuario 1</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Banner 2</td>
+                            <td>15</td>
+                            <td>Usuario 2</td>
+                            <td>19/01/2024</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Banner 3</td>
+                            <td>31</td>
+                            <td>Usuario 3</td>
                             <td>19/01/2024</td>
                         </tr>
                     </tbody>
@@ -76,5 +93,31 @@
             </form>
         </aside>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Banner 1', 'Banner 2', 'Banner 3'], // Nombres de los banners
+                    datasets: [{
+                        label: 'Clicks por banner',
+                        data: [23, 15, 31], // Datos de clics por cada banner
+                        backgroundColor: ['#3498db', '#e74c3c', '#2ecc71'], // Colores de fondo de las barras
+                        borderColor: ['#2980b9', '#c0392b', '#27ae60'], // Colores de borde de las barras
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
